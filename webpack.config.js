@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 
@@ -33,6 +34,11 @@ module.exports = (env, argv) => {
     },
     module: {
       rules: [
+        // .vue
+        {
+          test: /\.vue?$/,
+          loader: 'vue-loader'
+        },
         // .ts, .tsx
         {
           test: /\.tsx?$/,
@@ -73,6 +79,7 @@ module.exports = (env, argv) => {
       runtimeChunk: true
     },
     plugins: [
+      new VueLoaderPlugin(),
       new webpack.EnvironmentPlugin({
         NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
         DEBUG: false
