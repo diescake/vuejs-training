@@ -1,2 +1,15 @@
 # vuejs-training
-Training for Vue.js
+
+Experiment for Vue.js
+
+## Installation
+
+```bash
+yarn
+```
+
+## Running
+
+```bash
+yarn start
+```
